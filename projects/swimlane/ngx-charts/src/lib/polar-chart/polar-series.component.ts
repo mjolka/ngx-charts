@@ -174,7 +174,7 @@ export class PolarSeriesComponent implements OnChanges {
     } else if (this.scaleType === 'time') {
       return sortByTime(data, 'name');
     }
-    return sortByDomain(data, 'name', 'asc', this.xScale.domain());
+    return sortByDomain(data, 'name', this.xScale.domain());
   }
 
   isActive(entry): boolean {

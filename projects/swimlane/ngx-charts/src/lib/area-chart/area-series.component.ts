@@ -102,7 +102,7 @@ export class AreaSeriesComponent implements OnChanges {
     } else if (this.scaleType === 'time') {
       data = sortByTime(data, 'name');
     } else {
-      data = sortByDomain(data, 'name', 'asc', this.xScale.domain());
+      data = sortByDomain(data, 'name', this.xScale.domain());
     }
 
     this.path = currentArea(data);

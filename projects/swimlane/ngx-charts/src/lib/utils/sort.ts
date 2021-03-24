@@ -1,14 +1,10 @@
-export function sortLinear(data, property, direction = 'asc') {
+export function sortLinear(data, property) {
   return data.sort((a, b) => {
-    if (direction === 'asc') {
-      return a[property] - b[property];
-    } else {
-      return b[property] - a[property];
-    }
+    return a[property] - b[property];
   });
 }
 
-export function sortByDomain(data, property, direction = 'asc', domain) {
+export function sortByDomain(data, property, domain) {
   return data.sort((a, b) => {
     const aVal = a[property];
     const bVal = b[property];
@@ -16,27 +12,17 @@ export function sortByDomain(data, property, direction = 'asc', domain) {
     const aIdx = domain.indexOf(aVal);
     const bIdx = domain.indexOf(bVal);
 
-    if (direction === 'asc') {
-      return aIdx - bIdx;
-    } else {
-      return bIdx - aIdx;
-    }
+    return aIdx - bIdx;
   });
 }
 
-export function sortByTime(data, property, direction = 'asc') {
+export function sortByTime(data, property) {
   return data.sort((a, b) => {
     const aDate = a[property].getTime();
     const bDate = b[property].getTime();
 
-    if (direction === 'asc') {
-      if (aDate > bDate) return 1;
-      if (bDate > aDate) return -1;
-      return 0;
-    } else {
-      if (aDate > bDate) return -1;
-      if (bDate > aDate) return 1;
-      return 0;
-    }
+    if (aDate > bDate) return 1;
+    if (bDate > aDate) return -1;
+    return 0;
   });
 }
